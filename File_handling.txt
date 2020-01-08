@@ -1,0 +1,34 @@
+----php-----
+$fil=$_FILES['fil'];
+	$product_pic=$fil['name'];
+    $old=$fil['tmp_name'];
+	$new="upload/".$product_pic;
+	move_uploaded_file($old,$new);
+---------
+-----HTML-----
+   <label class="control-label" for="inputError"><strong>Product Pic</strong></label>
+             
+   <input class="input-xlarge focused" id="file" type="file" name="fil">
+               
+-------------
+------java------
+<%
+String fileName=getServletContext().getRealPath("jsp.txt");
+
+File f=new File(fileName);
+
+InputStream in = new FileInputStream(f);
+
+BufferedInputStream bin = new BufferedInputStream(in);
+
+DataInputStream din = new DataInputStream(bin);
+
+    while(din.available()>0)
+    {
+     out.print(din.readLine());
+    }
+in.close();
+bin.close();
+din.close();
+%>
+-------------
